@@ -8,8 +8,17 @@ readme = "README.md"
 keywords = ["monte", "carlo", "tree", "search", "ai"]
 categories = ["algorithms"]
 license = "MIT"
+edition = "2021"
 
 [dependencies]
+async-scoped = { version = "0.7.1", features = ["use-tokio"] }
+async-trait = "0.1.68"
 crossbeam = "0.3"
 rand = "0.4"
 smallvec = "0.6"
+tokio = { version = "1.28.2", features = ["full"] }
+tokio-test = "0.4.2"
+
+[[bin]]
+name = "counting-game"
+path = "examples/counting_game.rs"
