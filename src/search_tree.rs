@@ -166,10 +166,10 @@ async fn create_node<'a, Spec: MCTS>(
     eval: &Spec::Eval,
     policy: &Spec::TreePolicy,
     state: &Spec::State,
-    _handle: Option<SearchHandle<'a, Spec>>,
+    handle: Option<SearchHandle<'a, Spec>>,
 ) -> SearchNode<Spec> {
     let moves = state.available_moves();
-    let (move_eval, state_eval) = eval.evaluate_new_state(&state, &moves).await;
+    let (move_eval, state_eval) = eval.evaluate_new_state(&state, &moves, handle.is_none()).await;
     policy.validate_evaluations(&move_eval);
     let moves = moves
         .into_iter()

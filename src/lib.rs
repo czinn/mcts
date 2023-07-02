@@ -100,6 +100,7 @@ pub trait Evaluator<Spec: MCTS>: Sync {
         &self,
         state: &Spec::State,
         moves: &MoveList<Spec>,
+        is_root: bool,
     ) -> (Vec<MoveEvaluation<Spec>>, Self::StateEvaluation);
 
     fn evaluate_existing_state(

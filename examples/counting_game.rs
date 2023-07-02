@@ -52,7 +52,7 @@ struct MyEvaluator;
 impl Evaluator<MyMCTS> for MyEvaluator {
     type StateEvaluation = i64;
 
-    async fn evaluate_new_state(&self, state: &CountingGame, moves: &Vec<Move>) -> (Vec<()>, i64) {
+    async fn evaluate_new_state(&self, state: &CountingGame, moves: &Vec<Move>, _is_root: bool) -> (Vec<()>, i64) {
         (vec![(); moves.len()], state.0)
     }
 
